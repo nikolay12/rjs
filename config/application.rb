@@ -7,6 +7,8 @@ require 'rails/all'
 Bundler.require(*Rails.groups)
 
 module RailsDevise
+  extend Econfig::Shortcut
+
   class Application < Rails::Application
 
     config.generators do |g|

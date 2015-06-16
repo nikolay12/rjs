@@ -14,6 +14,8 @@ group :development, :test do
 end
 gem 'bootstrap-sass'
 gem 'devise'
+gem 'mysql2'
+gem "econfig", require: "econfig/rails"
 group :development do
   gem 'better_errors'
   gem 'quiet_assets'
