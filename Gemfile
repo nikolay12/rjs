@@ -15,6 +15,7 @@ end
 gem 'bootstrap-sass'
 gem 'devise'
 gem 'mysql2'
+gem 'pg'
 gem "econfig", require: "econfig/rails"
 group :development do
   gem 'better_errors'
@@ -29,7 +30,6 @@ group :development, :test do
   gem 'sqlite3'
 end
 group :production do
-  gem 'pg'
   gem 'rails_12factor'
 end
 group :test do
