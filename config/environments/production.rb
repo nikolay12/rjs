@@ -72,20 +72,19 @@ Rails.application.configure do
   config.active_support.deprecation = :notify
 
   config.action_mailer.smtp_settings = {
-      :address   => "smtp.mandrillapp.com",
-      :port      => 587,
-      :user_name => RailsDevise.config.MANDRILL_USERNAME, #ENV["MANDRILL_USERNAME"],
-      :password  => RailsDevise.config.MANDRILL_API_KEY, #ENV["MANDRILL_API_KEY"],
-      :domain    => RailsDevise.config.MANDRILL_DOMAIN, #ENV["MANDRILL_DOMAIN"],
-      :authentication => :plain
+    address: "smtp.gmail.com",
+    port: 587,
+    domain: Rails.application.secrets.domain_name,
+    authentication: "plain",
+    enable_starttls_auto: true,
+    user_name: Rails.application.secrets.email_provider_username,
+    password: Rails.application.secrets.email_provider_password
   }
   # ActionMailer Config
-  config.action_mailer.default_url_options = { :host => RailsDevise.config.MANDRILL_DOMAIN }
+  config.action_mailer.default_url_options = { :host => Rails.application.secrets.domain_name }
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.perform_deliveries = true
   config.action_mailer.raise_delivery_errors = false
-
-  config.secret_key_base = RailsDevise.config.secret_key_base
 
 
   # Use default logging formatter so that PID and timestamp are not suppressed.
