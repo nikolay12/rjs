@@ -1,9 +1,9 @@
 /**
  * Created by nnikolo on 30/08/15.
  */
-(function () {
-    var password = document.getElementById('user_password'); // Store password inputs
-    var passwordConfirm = document.getElementById('user_password_confirmation');
+$(document).ready(function () {
+    var password = $('#user_password'); // Store password inputs
+    var passwordConfirm = $('#user_password_confirmation');
 
     function setErrorHighlighter(e) {
         var target = e.target || e.srcElement;             // Get target element
@@ -31,8 +31,9 @@
         }
     }
 
-    addEvent(password, 'focus', removeErrorHighlighter);
-    addEvent(password, 'blur', setErrorHighlighter);
-    addEvent(passwordConfirm, 'focus', removeErrorHighlighter);
-    addEvent(passwordConfirm, 'blur', passwordsMatch);
-}());
+    password.focus(removeErrorHighlighter);
+    password.blur(setErrorHighlighter);
+
+    passwordConfirm.focus(removeErrorHighlighter);
+    passwordConfirm.blur(passwordsMatch);
+});
